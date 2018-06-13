@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ZL.Dao.CityDao">
+	<select id="findByAll" resultType="city">
+		select * from city
+	</select>
+
+	<delete id="del" parameterType="int">
+		delete from city where ctid =
+		#{ctid}
+	</delete>
+
+	<select id="findById" resultType="city" parameterType="int">
+		select *
+		from city where ctid = #{ctid}
+	</select>
+
+	<update id="update" parameterType="city">
+		update city set
+		ctname=#{ctname},ctstar=#{ctstar} where ctid = #{ctid}
+	</update>
+
+	<insert id="Save" parameterType="city">
+	  INSERT INTO city(ctname,ctstar,cid) VALUES(#{ctname},#{ctstar},#{cid})
+	</insert>
+</mapper>
